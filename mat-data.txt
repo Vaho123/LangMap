@@ -3,7 +3,7 @@ SUBTITLE: Hazel's Personal Language Map
 CATEGORY: Basic Needs | #ffecec
 Help | 🆘
 Toilet | 🚻
-Pain | 💢
+Pain | ⚡
 Hearing aids | 🦻
 Hot drink | ☕
 Cold drink | 🥤
@@ -38,7 +38,7 @@ Too noisy | 🔊
 Too busy | ⏳
 
 CATEGORY: Body Parts | #e8e6ff
-Pain | 💢
+Pain | ⚡
 Head | 🙂
 Arm | 💪
 Hand | ✋
