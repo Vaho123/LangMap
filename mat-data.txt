@@ -1,0 +1,91 @@
+SUBTITLE: Hazel's Personal Language Map
+
+CATEGORY: Basic Needs | #ffecec
+Help | 🆘
+Toilet | 🚻
+Pain | 💢
+Hearing aids | 🦻
+Hot drink | ☕
+Cold drink | 🥤
+Hot food | 🍲
+Cold food | 🥗
+Lost | ❓
+Sit | 🪑
+Stand | 🧍
+Walking frame | 🦽
+Stop | ✋
+Go | ➡️
+Phone | 📱
+Charger | 🔌
+
+
+CATEGORY: Comfort | #e8f7ff
+Yes | ✅
+No | ❌
+Not sure | 🤔
+Okay | 👌
+Happy | 😊
+I want… | 💭
+I need… | 🤲
+I'm angry because… | 😠
+Dizzy | 😵
+Shaky | 🫨
+Tired | 😴
+Scared | 😨
+Sad | 😢
+Worried | 😟
+Too noisy | 🔊
+Too busy | ⏳
+
+CATEGORY: Body Parts | #e8e6ff
+Pain | 💢
+Head | 🙂
+Arm | 💪
+Hand | ✋
+Leg | 🦵
+Foot | 🦶
+Left | ⬅️
+Right | ➡️
+Ache | 💢
+Back | 🧍‍♀️
+Stomach | 🤢
+Chest | ❤️
+Ear | 👂
+Eye | 👁️
+Mouth | 👄
+Teeth | 😬
+
+CATEGORY: Activity | #eaffea
+Wash | 🧼
+Shower | 🚿
+Dress | 👕
+Bed | 🛏️
+Medicine | 💊
+Walk | 🚶
+Rest | 🛋️
+Visitors | 👥
+
+CATEGORY: Technology | #e6e6ff
+Broken | ⚠️
+Phone | 📱
+Charger | 🔌
+Television | 📺
+Computer | 💻
+Tablet | 🧾
+
+CATEGORY: Choice | #fff4cc
+This | 👉
+That | 👈
+More | ➕
+Less | ➖
+Like | 👍
+Don’t like | 👎
+
+CATEGORY: Contacts | #f3e8ff
+Averil | 👤
+Christopher | 👤
+Valerie | 👤
+Anne | 👤
+Pam | 👤
+Anthony | 👤
+John (Computer) | 💻
