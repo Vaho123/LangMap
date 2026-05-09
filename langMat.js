@@ -116,6 +116,14 @@ function renderPanels() {
         speak(item.word);
     });
 
+    card.addEventListener("mouseenter", () => {
+       card.style.transform = "scale(2.5)";
+    });
+
+    card.addEventListener("mouseleave", () => {
+       card.style.transform = "scale(1)";
+    });;
+
     containers[item.category].appendChild(card);
   });
 }
