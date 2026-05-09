@@ -146,11 +146,6 @@ function applyHighlight(filter) {
   });
 }
 
-
-resetBtn.addEventListener("mouseenter", () => {
-  speak("Reset")
-});
-
 // RESET FUNCTION
 function resetAll() {
   speak("Reset");
