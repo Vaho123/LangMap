@@ -159,7 +159,7 @@ function applyHighlight(filter) {
 
 // RESET FUNCTION
 function resetAll() {
-//   document.querySelectorAll(".card").forEach(c => c.style.outline = "none");
+  speak("Reset");
   document.querySelectorAll(".card").forEach(c => c.classList.remove("selected"))
   document.querySelectorAll(".panel").forEach(p => p.style.display = "block");
   document.getElementById("categoryFilter").value = "all";
