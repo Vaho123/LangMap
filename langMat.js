@@ -146,6 +146,8 @@ function applyHighlight(filter) {
   });
 }
 
+
+
 // RESET FUNCTION
 function resetAll() {
   speak("Reset");
