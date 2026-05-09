@@ -1,20 +1,8 @@
 let words = [];
 let categoryColours = {};
 let voices = [];
-
 let selectedVoice = null;
-
-let welcomePlayed = false;
-
-function playWelcome() {
-  if (welcomePlayed) return;
-  welcomePlayed = true;
-  speak("Hello Hazel");
-}
-
-
-// ALSO guarantee it works (important)
-document.addEventListener("click", playWelcome, { once: true });
+let lastSpokenCategory = null;
 
 function loadVoices() {
   voices = speechSynthesis.getVoices();
@@ -32,22 +20,6 @@ speechSynthesis.onvoiceschanged = loadVoices;
 loadVoices();
 
 
-window.addEventListener("load", () => {
-  setTimeout(() => {
-    const utterance = new SpeechSynthesisUtterance("Hello Hazel");
-
-    utterance.lang = "en-GB";
-    utterance.rate = 0.8;
-    utterance.pitch = 1.2;
-
-    if (selectedVoice) {
-      utterance.voice = selectedVoice;
-    }
-
-    speechSynthesis.speak(utterance);
-  }, 300);
-});
-
 function speak(text) {
   const utterance = new SpeechSynthesisUtterance(text);
 
@@ -59,50 +31,8 @@ function speak(text) {
     utterance.voice = selectedVoice;
   }
 
-  speechSynthesis.cancel();
   speechSynthesis.speak(utterance);
 }
-
-// function speak(text) {
-//   const utterance = new SpeechSynthesisUtterance(text);
-
-//   utterance.lang = "en-GB";
-//   utterance.rate = 0.8;
-//   utterance.pitch = 1.2;
-
-//   if (selectedVoice) {
-//     utterance.voice = selectedVoice;
-//   }
-
-//   speechSynthesis.cancel();
-//   speechSynthesis.speak(utterance);
-// }
-
-// function speak(text) {
-//   speechSynthesis.cancel();
-
-//   const utterance = new SpeechSynthesisUtterance(text);
-
-//   utterance.lang = "en-GB";
-//   utterance.rate = 0.8;
-//   utterance.pitch = 1.2;
-
-
-//   // Try to find a female British voice
-//   const femaleVoice =
-//     // voices.find(v => v.name.includes("Female"))  ||
-//     // voices.find(v => v.name.includes("Sonia"))  || ||
-//     // voices.find(v => v.name.includes("Libby"))  ||
-//     voices.find(v => v.name.includes("Hazel")) 
-//     voices.find(v => v.lang === "en-GB");
-
-//   if (femaleVoice) {
-//     utterance.voice = femaleVoice;
-//   }
-
-//   speechSynthesis.speak(utterance);
-// }
-
 
 async function loadMatData() {
   const response = await fetch("mat-data.txt");
@@ -133,6 +63,7 @@ async function loadMatData() {
     } else {
       const [word, icon] = line.split("|").map(s => s.trim());
       data.words.push({ word, icon, category: currentCategory });
+     
     }
   });
 
@@ -166,6 +97,8 @@ function renderPanels() {
     containers[cat] = panel.querySelector(`#mat-${safeId}`);
 
     dropdown.innerHTML += `<option value="${safeId}">${cat}</option>`;
+
+    
   });
 
   words.forEach(item => {
@@ -180,14 +113,21 @@ function renderPanels() {
 
     card.addEventListener("click", () => {
       card.classList.toggle("selected");
-      speak(item.word);
+        speak(item.word);
     });
 
-    // item.category is the original name ("Cat 1"), which matches the key in containers
     containers[item.category].appendChild(card);
   });
 }
 
+document.getElementById("categoryFilter").addEventListener("change", (e) => {
+  const selectedText =
+    e.target.options[e.target.selectedIndex].text;
+
+    speak(selectedText);
+
+  applyHighlight(e.target.value);
+});
 
 function applyHighlight(filter) {
   const panels = document.querySelectorAll(".panel");
@@ -206,24 +146,6 @@ function applyHighlight(filter) {
   });
 }
 
-
-  // Add cards
-  words.forEach(item => {
-    const card = document.createElement("div");
-    card.className = "card";
-    card.tabIndex = 0;
-
-    card.innerHTML = `
-      <div class="icon">${item.icon}</div>
-      <div class="word">${item.word}</div>
-    `;
-
-    card.addEventListener("click", () => {
-      card.classList.toggle("selected");
-    });
-
-    containers[item.category].appendChild(card);
-  });
 
 resetBtn.addEventListener("mouseenter", () => {
   speak("Reset")
@@ -246,7 +168,6 @@ document.getElementById("resetBtn").addEventListener("click", resetAll);
 
 
 loadMatData().then(data => {
-  // document.getElementById("mainTitle").textContent = data.title;
   document.getElementById("subTitle").textContent = data.subtitle;
 
   words = data.words;
